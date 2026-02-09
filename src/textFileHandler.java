@@ -10,10 +10,11 @@ import java.util.Scanner;
  */
 public class textFileHandler {
     public static void loadFromFile(String fileName, PatronManager manager) {
-
+    try{
         File file = new File(fileName);
         Scanner fileScanner = new Scanner(file);
         int lineNumber = 0;
+
         while (fileScanner.hasNextLine()) {
             lineNumber++;
             String line = fileScanner.nextLine();
@@ -37,17 +38,23 @@ public class textFileHandler {
                 double fine = Double.parseDouble(parts[3]);
 
                 Patron patron = new Patron(id, name, address, fine);
+                manager.addPatron(patron); //am I being redundant PLEASE REMOVE THIS
 
                 if (!manager.addPatron(patron)) {
                     System.out.println("Duplicate ID skipped: " + id);
                 }
 
-
-
-
+            } catch (Exception e) {
+                System.out.println("Error on line " + lineNumber + ": " + e.getMessage());
             }
+
         }
 
-    }
+        fileScanner.close();
+        System.out.println("File loading complete.");
 
-}
+    } catch (Exception e) {
+        System.out.println("Could not open file: " + e.getMessage());
+    }
+            }
+        }
