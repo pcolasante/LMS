@@ -32,16 +32,16 @@ public class textFileHandler {
                 if (parts.length != 4) {
                     throw new IllegalArgumentException("Incorrect format.");
                 }
-                int id = Integer.parseInt(parts[0]);
+                int patronId = Integer.parseInt(parts[0]);
                 String name = parts[1];
                 String address = parts[2];
-                double fine = Double.parseDouble(parts[3]);
+                double overdueAmount = Double.parseDouble(parts[3]);
 
-                Patron patron = new Patron(id, name, address, fine);
+                Patron patron = new Patron(patronId, name, address, overdueAmount);
                 manager.addPatron(patron); //am I being redundant PLEASE REMOVE THIS
 
                 if (!manager.addPatron(patron)) {
-                    System.out.println("Duplicate ID skipped: " + id);
+                    System.out.println("Duplicate ID: " + patronId);
                 }
 
             } catch (Exception e) {
