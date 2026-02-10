@@ -54,8 +54,10 @@ public class LMSApp {
 
                         if (manager.addPatron(patron)) {
                             System.out.println("Patron added successfully!");
+                            manager.getAllPatrons();
                         } else {
                             System.out.println("Patron could not be added!");
+                            manager.getAllPatrons();
                         }
 
                     } catch (Exception e) {
@@ -71,24 +73,26 @@ public class LMSApp {
 
                         if (manager.removePatronById(removePatronById)) {
                             System.out.println("Patron removed successfully!");
+                            manager.getAllPatrons();
                         } else {
                             System.out.println("Patron could not be removed.");
+                            manager.getAllPatrons();
                         }
                     } catch (Exception e) {
                         System.out.println("INVALID INPUT: " + e.getMessage());
                         scanner.nextInt();
                     }
                     break;
-                case 4:
-                    System.out.println("\n--- Load Patron From File ---\n");
-                    System.out.println("Enter file name: ");
-                    String fileName = scanner.nextLine();
-                    textFileHandler.loadFromFile(fileName, manager);
-                    break;
                 case 3:
                     manager.getAllPatrons();
                     break;
-
+                case 4:
+                    System.out.println("\n--- Load Patron From File ---\n");
+                    System.out.println("Enter file using the file path: ");
+                    String fileName = scanner.nextLine();
+                    textFileHandler.loadFromFile(fileName, manager);
+                    manager.getAllPatrons();
+                    break;
                 case 5:
                     System.out.println("EXITING LIBRARY MANAGEMENT SYSTEM");
                     break;

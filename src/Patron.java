@@ -3,7 +3,7 @@
  Date: 2/9/2026
 
  Class: Patron: All information from the patron is held here.
- It will obtain the name, address, ID number, and amount overdue.
+ It will obtain and return the name, address, ID number, and amount overdue.
  
  */
 public class Patron {
@@ -13,6 +13,11 @@ public class Patron {
     String address;
     double overdueAmount;
 
+    /**
+     * method: Patron
+     * return: Patron
+     * purpose: to obtain and return the Patron Information of the patron
+     */
     public Patron(int patronId, String name, String address, double overdueAmount) {
 
         if (overdueAmount < 0 || overdueAmount > 250) {
@@ -30,24 +35,47 @@ public class Patron {
 
 
     }
-
+    /**
+     * method: getId
+     * return: int
+     * no parameters
+     * purpose: to obtain and return the ID of the patron
+     */
     public int getId() {
         return patronId;
 
 
     }
-
+    /**
+     * method: getName
+     * return: String
+     * no parameters
+     * purpose: to obtain and return the name of the patron
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * method: getAddress
+     * return: String
+     * no parameters
+     * purpose: to obtain and return the address of the patron
+     */
     public String getAddress() {
         return address;
     }
 
+    /**
+     * method: getOverdueAmount
+     * return: double
+     * no parameters
+     * purpose: to obtain and return the overdue amount of the patron
+     */
     public double getOverdueAmount() {
         return overdueAmount;
     }
+
 
     @Override
     public String toString() {
