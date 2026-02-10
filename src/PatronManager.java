@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /*Author: Paulina Flores Colasante
  Course: Software Development 1
  Date: 2/9/2026
@@ -7,5 +9,33 @@
  */
 public class PatronManager {
 
+    private ArrayList<Patron> patrons = new ArrayList<>();
+
+    public boolean addPatron(Patron patron){
+        if(patronExists(patron.getId())) {
+            return false;
+        }
+        patrons.add(patron);
+        return true;
+    }
+    public boolean removePatronById(int patronId){
+        for(Patron patron : patrons){
+            if(patron.getId() == patronId){
+                patrons.remove(patron);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void getAllPatrons(){
+        if(!patrons.isEmpty()){
+            System.out.println("No Patrons in the System");
+            return;
+        }
+        for (Patron patron : patrons) {
+            System.out.println(patron);
+        }
+    }
 }
 
