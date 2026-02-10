@@ -10,6 +10,7 @@ import java.util.ArrayList;
 public class PatronManager {
 
     private ArrayList<Patron> patrons = new ArrayList<>();
+    //Making it final since we are not planning on replacing the list at runtime.
 
     public boolean addPatron(Patron patron){
         if(patronExists(patron.getId())) {
@@ -22,6 +23,15 @@ public class PatronManager {
         for(Patron patron : patrons){
             if(patron.getId() == patronId){
                 patrons.remove(patron);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean patronExists(int patronId){
+        for(Patron patron : patrons){
+            if(patron.getId() == patronId){
                 return true;
             }
         }

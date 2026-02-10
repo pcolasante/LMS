@@ -13,7 +13,6 @@
  */
 
 import java.util.Scanner;
-import java.util.Scanner;
 
 public class LMSApp {
     public static void main(String[] args) {
@@ -80,13 +79,13 @@ public class LMSApp {
                         scanner.nextInt();
                     }
                     break;
-                case 3:
+                case 4:
                     System.out.println("\n--- Load Patron From File ---\n");
                     System.out.println("Enter file name: ");
                     String fileName = scanner.nextLine();
                     textFileHandler.loadFromFile(fileName, manager);
                     break;
-                case 4:
+                case 3:
                     manager.getAllPatrons();
                     break;
 
